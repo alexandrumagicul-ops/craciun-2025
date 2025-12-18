@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colindul nostru</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; background: #f2f2f2; padding: 20px; }
+  .ceas { font-size: 48px; margin-bottom: 10px; }
+  .casa { font-size: 24px; margin-bottom: 20px; }
+  .sageata { font-size: 36px; margin-bottom: 30px; }
+  .colind-btn { display: block; margin: 10px auto; padding: 20px; font-size: 20px; width: 200px; cursor: pointer; background: #4CAF50; color: white; border: none; border-radius: 8px; }
+  .versuri { display: none; margin-top: 10px; font-size: 18px; }
+</style>
+</head>
+<body>
+
+<div class="ceas" id="ceas">00:00:00</div>
+<div class="casa" id="casa">Casa Popescu</div>
+<div class="sageata">➡️</div>
+
+<button class="colind-btn" onclick="toggleVersuri('vers1')">Colind 1</button>
+<div class="versuri" id="vers1">
+  Versurile colindului 1 <br>
+  Linie 2 <br>
+  Linie 3
+</div>
+
+<button class="colind-btn" onclick="toggleVersuri('vers2')">Colind 2</button>
+<div class="versuri" id="vers2">
+  Versurile colindului 2 <br>
+  Linie 2 <br>
+  Linie 3
+</div>
+
+<button class="colind-btn" onclick="toggleVersuri('vers3')">Colind 3</button>
+<div class="versuri" id="vers3">
+  Versurile colindului 3 <br>
+  Linie 2 <br>
+  Linie 3
+</div>
+
+<script>
+  // Ceas live
+  function updateClock() {
+    const now = new Date();
+    document.getElementById('ceas').textContent = now.toLocaleTimeString();
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // Toggle versuri
+  function toggleVersuri(id) {
+    const v = document.getElementById(id);
+    v.style.display = v.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // Notificări push
+  document.addEventListener("DOMContentLoaded", function() {
+    if ("Notification" in window) {
+      Notification.requestPermission().then(function(permission) {
+        if (permission === "granted") {
+          console.log("Notificările au fost activate!");
+        } else {
+          alert("Trebuie să accepți notificările ca să folosești site-ul.");
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
