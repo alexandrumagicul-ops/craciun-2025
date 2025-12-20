@@ -1,7 +1,7 @@
 /**
  * 1. CONFIGURARE DATA START & PROGRAM
  */
-const DATA_START = new Date('2025-12-20T00:00:00'); 
+const DATA_START = new Date('2025-12-21T00:00:00'); 
 
 const program = [
     { start: "19:30", end: "21:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw", tip: "familie" },
@@ -261,4 +261,3 @@ function createSnowflakes() {
     }
 }
 createSnowflakes();
-
