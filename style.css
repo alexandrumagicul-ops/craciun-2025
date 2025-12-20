@@ -1,0 +1,102 @@
+:root {
+    --christmas-red: #d42426;
+    --christmas-green: #165b33;
+    --snow-white: #f8f9fa;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background: #001529; /* Albastru noapte */
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Header Fix */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(22, 91, 51, 0.95);
+    padding: 10px 0;
+    border-bottom: 3px solid var(--christmas-red);
+    z-index: 100;
+}
+
+#current-time { font-size: 1.5rem; font-weight: bold; }
+#status-bar { font-size: 0.9rem; margin-top: 5px; color: #ffd700; }
+
+/* Overlay Notificari */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--christmas-red);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-big {
+    padding: 20px 60px;
+    font-size: 2rem;
+    border-radius: 50px;
+    border: none;
+    background: white;
+    color: var(--christmas-red);
+    font-weight: bold;
+    margin: 10px;
+}
+
+.btn-small {
+    background: none;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+/* Grila Colinde */
+.grid-songs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 120px 20px 40px;
+}
+
+.song-btn {
+    background: var(--snow-white);
+    color: #333;
+    padding: 20px 10px;
+    border-radius: 15px;
+    border-bottom: 5px solid #ccc;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Versuri */
+.hidden { display: none; }
+.lyrics-container { padding: 120px 20px; }
+.lyrics-content {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    margin-bottom: 30px;
+}
+
+.nav-controls {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    padding: 15px 0;
+}
+
+.nav-controls button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
