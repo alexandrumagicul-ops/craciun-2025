@@ -2,6 +2,7 @@
     --christmas-red: #d42426;
     --christmas-green: #165b33;
     --snow-white: #f8f9fa;
+    --gold: #ffd700;
 }
 
 body {
@@ -11,9 +12,40 @@ body {
     color: white;
     text-align: center;
     overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* Header Fix */
+/* --- PAGINA DE AȘTEPTARE (ÎNAINTE DE 23 DEC) --- */
+.waiting-page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#001529, #165b33);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px dashed var(--gold);
+    margin: 20px 0;
+    width: 90%;
+    max-width: 400px;
+}
+
+.footer-msg {
+    position: fixed;
+    bottom: 20px;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* --- HEADER FIX (PAGINA PRINCIPALĂ) --- */
 .fixed-header {
     position: fixed;
     top: 0;
@@ -22,12 +54,13 @@ body {
     padding: 10px 0;
     border-bottom: 3px solid var(--christmas-red);
     z-index: 100;
+    backdrop-filter: blur(5px);
 }
 
-#current-time { font-size: 1.5rem; font-weight: bold; }
-#status-bar { font-size: 0.9rem; margin-top: 5px; color: #ffd700; }
+#current-time { font-size: 1.5rem; font-weight: bold; color: white; }
+#status-bar { font-size: 0.9rem; margin-top: 5px; color: var(--gold); }
 
-/* Overlay Notificari */
+/* --- OVERLAY NOTIFICARI --- */
 .overlay {
     position: fixed;
     inset: 0;
@@ -36,7 +69,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
+
+.overlay-content h1 { font-size: 1.8rem; margin-bottom: 30px; }
 
 .btn-big {
     padding: 20px 60px;
@@ -46,57 +82,81 @@ body {
     background: white;
     color: var(--christmas-red);
     font-weight: bold;
-    margin: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
 }
 
 .btn-small {
+    display: block;
+    margin: 30px auto 0;
     background: none;
     border: 1px solid white;
     color: white;
     padding: 5px 20px;
-    cursor: pointer;
+    border-radius: 10px;
+    opacity: 0.7;
 }
 
-/* Grila Colinde */
+/* --- GRILA COLINDE --- */
 .grid-songs {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 15px;
-    padding: 120px 20px 40px;
+    padding: 130px 20px 40px;
 }
 
 .song-btn {
     background: var(--snow-white);
     color: #333;
-    padding: 20px 10px;
-    border-radius: 15px;
-    border-bottom: 5px solid #ccc;
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    border-bottom: 5px solid #bdc3c7;
     font-weight: bold;
-    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.1s;
 }
 
-/* Versuri */
-.hidden { display: none; }
-.lyrics-container { padding: 120px 20px; }
+.song-btn:active { transform: translateY(3px); border-bottom-width: 2px; }
+
+/* --- PAGINA VERSURI --- */
+.hidden { display: none !important; }
+
+.lyrics-container { padding: 130px 20px 100px; }
 .lyrics-content {
     font-size: 1.4rem;
     line-height: 1.8;
     white-space: pre-wrap;
-    margin-bottom: 30px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 15px;
 }
 
 .nav-controls {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: rgba(0,0,0,0.8);
+    background: rgba(0,0,0,0.9);
     padding: 15px 0;
+    border-top: 2px solid var(--christmas-green);
 }
 
 .nav-controls button {
-    padding: 10px;
-    border-radius: 10px;
+    padding: 10px 15px;
+    border-radius: 12px;
     border: none;
+    background: var(--christmas-green);
+    color: white;
+    font-weight: bold;
+}
+
+#go-home { background: var(--christmas-red); }
+
+/* --- ANIMATIE FULGI --- */
+@keyframes fall {
+    to { transform: translateY(100vh) rotate(360deg); }
 }
