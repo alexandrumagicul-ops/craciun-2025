@@ -1,73 +1,50 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Colindul nostru</title>
-<style>
-  body { font-family: Arial, sans-serif; text-align: center; background: #f2f2f2; padding: 20px; }
-  .ceas { font-size: 48px; margin-bottom: 10px; }
-  .casa { font-size: 24px; margin-bottom: 20px; }
-  .sageata { font-size: 36px; margin-bottom: 30px; }
-  .colind-btn { display: block; margin: 10px auto; padding: 20px; font-size: 20px; width: 200px; cursor: pointer; background: #4CAF50; color: white; border: none; border-radius: 8px; }
-  .versuri { display: none; margin-top: 10px; font-size: 18px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grup Colindători</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="ceas" id="ceas">00:00:00</div>
-<div class="casa" id="casa">Casa Popescu</div>
-<div class="sageata">➡️</div>
+    <div id="notif-overlay" class="overlay">
+        <div class="overlay-content">
+            <h1>Ești pregătit să mergi cu colinda?</h1>
+            <button id="btn-da" class="btn-big">DA</button>
+            <button id="btn-nu" class="btn-small">NU</button>
+        </div>
+    </div>
 
-<button class="colind-btn" onclick="toggleVersuri('vers1')">Colind 1</button>
-<div class="versuri" id="vers1">
-  Versurile colindului 1 <br>
-  Linie 2 <br>
-  Linie 3
-</div>
+    <header class="fixed-header">
+        <div id="current-time">00:00:00</div>
+        <div id="status-bar">
+            <span id="current-location">Se încarcă...</span>
+            <div id="time-left">Timp rămas: --:--</div>
+        </div>
+        <div class="snowflakes"></div>
+    </header>
 
-<button class="colind-btn" onclick="toggleVersuri('vers2')">Colind 2</button>
-<div class="versuri" id="vers2">
-  Versurile colindului 2 <br>
-  Linie 2 <br>
-  Linie 3
-</div>
+    <main id="main-content">
+        <div class="container">
+            <h2>📜 Alege Colinda</h2>
+            <div id="song-list" class="grid-songs">
+                </div>
+        </div>
+    </main>
 
-<button class="colind-btn" onclick="toggleVersuri('vers3')">Colind 3</button>
-<div class="versuri" id="vers3">
-  Versurile colindului 3 <br>
-  Linie 2 <br>
-  Linie 3
-</div>
+    <section id="lyrics-page" class="hidden">
+        <div class="lyrics-container">
+            <h1 id="song-title"></h1>
+            <div id="song-text" class="lyrics-content"></div>
+            <div class="nav-controls">
+                <button id="prev-song">⬅ Anterioara</button>
+                <button id="go-home">🏠 Acasă</button>
+                <button id="next-song">Următoarea ➡</button>
+            </div>
+        </div>
+    </section>
 
-<script>
-  // Ceas live
-  function updateClock() {
-    const now = new Date();
-    document.getElementById('ceas').textContent = now.toLocaleTimeString();
-  }
-  setInterval(updateClock, 1000);
-  updateClock();
-
-  // Toggle versuri
-  function toggleVersuri(id) {
-    const v = document.getElementById(id);
-    v.style.display = v.style.display === 'block' ? 'none' : 'block';
-  }
-
-  // Notificări push
-  document.addEventListener("DOMContentLoaded", function() {
-    if ("Notification" in window) {
-      Notification.requestPermission().then(function(permission) {
-        if (permission === "granted") {
-          console.log("Notificările au fost activate!");
-        } else {
-          alert("Trebuie să accepți notificările ca să folosești site-ul.");
-        }
-      });
-    }
-  });
-</script>
-
+    <script src="app.js"></script>
 </body>
 </html>
