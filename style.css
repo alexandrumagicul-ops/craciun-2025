@@ -15,9 +15,9 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-/* --- PAGINA DE AȘTEPTARE (ÎNAINTE DE 23 DEC) --- */
+/* --- PAGINA DE AȘTEPTARE (ÎNAINTE DE ACTIVARE) --- */
 .waiting-page {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,21 +28,13 @@ body {
 }
 
 .info-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 25px;
     border-radius: 20px;
-    border: 2px dashed var(--gold);
+    border: 1px solid var(--gold);
     margin: 20px 0;
     width: 90%;
-    max-width: 400px;
-}
-
-.footer-msg {
-    position: fixed;
-    bottom: 20px;
-    font-size: 0.9rem;
-    font-style: italic;
-    opacity: 0.8;
+    max-width: 450px;
 }
 
 /* --- HEADER FIX (PAGINA PRINCIPALĂ) --- */
@@ -58,7 +50,14 @@ body {
 }
 
 #current-time { font-size: 1.5rem; font-weight: bold; color: white; }
-#status-bar { font-size: 0.9rem; margin-top: 5px; color: var(--gold); }
+#status-bar { 
+    font-size: 0.9rem; 
+    margin-top: 5px; 
+    color: var(--gold);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 /* --- OVERLAY NOTIFICARI --- */
 .overlay {
@@ -102,7 +101,7 @@ body {
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
-    padding: 130px 20px 40px;
+    padding: 140px 20px 20px; /* Spatiu mai mare sus pentru header */
 }
 
 .song-btn {
@@ -113,50 +112,74 @@ body {
     border: none;
     border-bottom: 5px solid #bdc3c7;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     cursor: pointer;
     transition: transform 0.1s;
 }
 
 .song-btn:active { transform: translateY(3px); border-bottom-width: 2px; }
 
-/* --- PAGINA VERSURI --- */
+/* --- PAGINA VERSURI (MODIFICATĂ) --- */
 .hidden { display: none !important; }
 
-.lyrics-container { padding: 130px 20px 100px; }
-.lyrics-content {
-    font-size: 1.4rem;
-    line-height: 1.8;
-    white-space: pre-wrap;
-    background: rgba(255,255,255,0.05);
-    padding: 20px;
-    border-radius: 15px;
+.lyrics-container { 
+    padding: 140px 20px 120px; 
+    max-width: 600px;
+    margin: 0 auto;
 }
 
+#song-title {
+    font-size: 2.2rem; /* Titlu mare */
+    color: var(--gold);
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.lyrics-content {
+    font-size: 1.8rem; /* Versuri mult mai mari */
+    line-height: 1.6;
+    white-space: pre-wrap;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 30px 20px;
+    border-radius: 20px;
+    color: #ffffff;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* --- NAVIGARE JOS --- */
 .nav-controls {
     display: flex;
     justify-content: space-around;
     align-items: center;
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;
-    background: rgba(0,0,0,0.9);
-    padding: 15px 0;
+    background: rgba(0, 0, 0, 0.95);
+    padding: 20px 0;
     border-top: 2px solid var(--christmas-green);
+    z-index: 200;
 }
 
 .nav-controls button {
-    padding: 10px 15px;
+    padding: 12px 18px;
     border-radius: 12px;
     border: none;
     background: var(--christmas-green);
     color: white;
     font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 #go-home { background: var(--christmas-red); }
 
 /* --- ANIMATIE FULGI --- */
+.snowflakes {
+    pointer-events: none;
+}
+
 @keyframes fall {
     to { transform: translateY(100vh) rotate(360deg); }
 }
