@@ -1,7 +1,7 @@
 /**
  * 1. CONFIGURARE DATA START & PROGRAM
  */
-const DATA_START = new Date('2025-12-24T00:00:00'); // Data la care se activează colindele
+const DATA_START = new Date('2025-12-24T19:30:00'); // Setați ora plecării aici
 
 const program = [
     { start: "19:30", end: "21:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
@@ -9,35 +9,15 @@ const program = [
     { start: "22:00", end: "22:30", nume: "Buni Lia", adresa: "Str. Trandafirilor, bl. 4", link: "https://maps.app.goo.gl/bmyXFL4xv6nNeENH7" },
     { start: "22:30", end: "00:00", nume: "Fam. Sorescu", adresa: "Str. Izvorului nr. 16", link: "https://maps.app.goo.gl/F5m755tay38zMSkH7" },
     { start: "00:00", end: "01:00", nume: "Fam. Gabor", adresa: "Str. Zăvoi", link: "https://maps.app.goo.gl/BSbVC3CSpavtXHjs5" },
-    { start: "01:00", end: "06:00", nume: "Fam. Petruse", adresa: "Str. Pescărușului 24", link: "https://maps.app.goo.gl/PQcN9WXbrjxzSMiR6" }
+    { start: "01:00", end: "06:00", nume: "Fam. Petruse", adresa: "Str. Pescărușului", link: "https://maps.app.goo.gl/PQcN9WXbrjxzSMiR6" }
 ];
 
 const colinde = [
-  {
-    id: 0,
-    titlu: "Domn, Domn să-nălțăm",
-    versuri: "Am plecat să colindăm\nDomn, Domn să-nălțăm\nCând boierii nu-s acasă\nDomn, Domn să-nălțăm\n\nȘi-au plecat la vânătoare\nDomn, Domn să-nălțăm\nSă vâneze căprioare\nDomn, Domn să-nălțăm\n\nCaprioare n-au vânat\nDomn, Domn să-nălțăm\nȘi-au vânat un iepuraș\nDomn, Domn să-nălțăm\n\nSă facă din blana lui\nDomn, Domn să-nălțăm\nVeșmânt frumos Domnului\nDomn, Domn să-nălțăm"
-  },
-  {
-    id: 1,
-    titlu: "O, ce veste minunată",
-    versuri: "I.\nO, ce veste minunată!\nÎn Betleem ni s-arată\nAstăzi s-a născut\nCel făr' de-nceput\nCum au zis prorocii.\n\nII.\nCă la Betleem Maria\nSăvârşind călătoria,\nÎntr-un mic sălaş,\nLângă-acel oraş,\nA născut pe Mesia.\n\nIII.\nPe fiul în al Său nume,\nTatăl L-a trimis în lume,\nSă se nască\nŞi să crească,\nSă ne mântuiască."
-  },
-  {
-    id: 2,
-    titlu: "Deschide ușa, creștine",
-    versuri: "Deschide ușa, creștine\nDeschide ușa, creștine\nCă venim din nou la tine\nLa mulți ani, mulți ani cu bine\n\nDrumu-i lung și-am obosit\nDrumu-i lung și-am obosit\nDe departe am venit\nLa mulți ani, mulți ani cu bine\n\nNoi la Viflaim am fost\nNoi la Viflaim am fost\nUnde S-a născut Hristos\nLa mulți ani, mulți ani cu bine\n\nȘi-am văzut și pe-a Sa mamă\nȘi-am văzut și pe-a Sa mamă\nPe care Maria o chema\nLa mulți ani, mulți ani cu bine\n\nCum umbla din casă-n casă\nCum umbla din casă-n casă\nCa pe Fiul ei să-L nască\nLa mulți ani, mulți ani cu bine\n\nUmbla-n jos și umbla-n sus\nUmbla-n jos și umbla-n sus\nCa să-L nască pe Iisus\nLa mulți ani, mulți ani cu bine\n\nCare cu puterea Sa\nCare cu puterea Sa\nMântui-va lumea\nȘi de-acum până-n vecie mila Domnului să fie\nLa mulți ani, mulți ani cu bine"
-  },
-  {
-    id: 3,
-    titlu: "Trei păstori se întâlniră",
-    versuri: "Trei păstori se întâlniră\nRaza soarelui, floarea soarelui\nȘi așa se sfătuiră\n\nHaideți, fraților, să mergem\nHaideți, fraților, să mergem\nRaza soarelui, floarea soarelui\nFloricele să culegem\n\nȘi să facem o cunună\nȘi să facem o cunună\nRaza soarelui, floarea soarelui\nS-o-mpletim cu voie bună\n\nȘi s-o ducem lui Hristos\nȘi s-o ducem lui Hristos\nRaza soarelui, floarea soarelui\nSa ne fie de folos"
-  },
-  {
-    id: 4,
-    titlu: "Hoi-la",
-    versuri: "Sloboază-ne, gazdă-n casă\nNu ne ține la fereastră\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nSloboază-ne, gazdă-n tindă\nSă vă zicem o colindă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nCă umblăm a colinda\nDe la o casă la alta\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la lelea Floare\nCă stă colea mai la vale\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nLelea Floare nu ne lasă\nCă-i facem tină în casă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la domn' primaru'\nDa' nu ne dă niciun banu'\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-am venit la dumneavoastră\nCă sunteți gazdă aleasă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nMulțămim că ne-ați primit\nȘi frumos ne-ați omenit\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nAmu merem mai departe\nRămâneți cu sănătate\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nȘi la anu' om colinda\nNumai dacă ne-ți chema\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la"
-  }
+  { id: 0, titlu: "Domn, Domn să-nălțăm", versuri: "Am plecat să colindăm\nDomn, Domn să-nălțăm\nCând boierii nu-s acasă\nDomn, Domn să-nălțăm\n\nȘi-au plecat la vânătoare\nDomn, Domn să-nălțăm\nSă vâneze căprioare\nDomn, Domn să-nălțăm\n\nCaprioare n-au vânat\nDomn, Domn să-nălțăm\nȘi-au vânat un iepuraș\nDomn, Domn să-nălțăm\n\nSă facă din blana lui\nDomn, Domn să-nălțăm\nVeșmânt frumos Domnului\nDomn, Domn să-nălțăm" },
+  { id: 1, titlu: "O, ce veste minunată", versuri: "I.\nO, ce veste minunată!\nÎn Betleem ni s-arată\nAstăzi s-a născut\nCel făr' de-nceput\nCum au zis prorocii.\n\nII.\nCă la Betleem Maria\nSăvârşind călătoria,\nÎntr-un mic sălaş,\nLângă-acel oraş,\nA născut pe Mesia.\n\nIII.\nPe fiul în al Său nume,\nTatăl L-a trimis în lume,\nSă se nască\nŞi să crească,\nSă ne mântuiască." },
+  { id: 2, titlu: "Deschide ușa, creștine", versuri: "Deschide ușa, creștine\nDeschide ușa, creștine\nCă venim din nou la tine\nLa mulți ani, mulți ani cu bine\n\nDrumu-i lung și-am obosit\nDrumu-i lung și-am obosit\nDe departe am venit\nLa mulți ani, mulți ani cu bine\n\nNoi la Viflaim am fost\nNoi la Viflaim am fost\nUnde S-a născut Hristos\nLa mulți ani, mulți ani cu bine\n\nȘi-am văzut și pe-a Sa mamă\nȘi-am văzut și pe-a Sa mamă\nPe care Maria o chema\nLa mulți ani, mulți ani cu bine\n\nCum umbla din casă-n casă\nCum umbla din casă-n casă\nCa pe Fiul ei să-L nască\nLa mulți ani, mulți ani cu bine\n\nUmbla-n jos și umbla-n sus\nUmbla-n jos și umbla-n sus\nCa să-L nască pe Iisus\nLa mulți ani, mulți ani cu bine\n\nCare cu puterea Sa\nCare cu puterea Sa\nMântui-va lumea\nȘi de-acum până-n vecie mila Domnului să fie\nLa mulți ani, mulți ani cu bine" },
+  { id: 3, titlu: "Trei păstori se întâlniră", versuri: "Trei păstori se întâlniră\nRaza soarelui, floarea soarelui\nȘi așa se sfătuiră\n\nHaideți, fraților, să mergem\nHaideți, fraților, să mergem\nRaza soarelui, floarea soarelui\nFloricele să culegem\n\nȘi să facem o cunună\nȘi să facem o cunună\nRaza soarelui, floarea soarelui\nS-o-mpletim cu voie bună\n\nȘi s-o ducem lui Hristos\nȘi s-o ducem lui Hristos\nRaza soarelui, floarea soarelui\nSa ne fie de folos" },
+  { id: 4, titlu: "Hoi-la", versuri: "Sloboază-ne, gazdă-n casă\nNu ne ține la fereastră\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nSloboază-ne, gazdă-n tindă\nSă vă zicem o colindă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nCă umblăm a colinda\nDe la o casă la alta\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la lelea Floare\nCă stă colea mai la vale\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nLelea Floare nu ne lasă\nCă-i facem tină în casă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la domn' primaru'\nDa' nu ne dă niciun banu'\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-am venit la dumneavoastră\nCă sunteți gazdă aleasă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nMulțămim că ne-ați primit\nȘi frumos ne-ați omenit\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nAmu merem mai departe\nRămâneți cu sănătate\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nȘi la anu' om colinda\nNumai dacă ne-ți chema\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la" }
 ];
 let currentSongIndex = 0;
 
@@ -177,16 +157,26 @@ window.closeProgramPage = function() {
 };
 
 /**
- * 5. VERIFICARE DATĂ (PAGINA DE AȘTEPTARE FRUMOASĂ)
+ * 5. VERIFICARE DATĂ (CU TIMER)
  */
 function checkEventDate() {
     const acum = new Date();
     if (acum < DATA_START) {
+        // Calcul Timer
+        const diff = DATA_START - acum;
+        const zile = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const ore = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const sec = Math.floor((diff % (1000 * 60)) / 1000);
+
         document.body.innerHTML = `
             <div style="text-align: center; padding: 20px; color: white; font-family: sans-serif; background: #2c3e50; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
                 <h1 style="font-size: 4rem; margin: 0;">🎄</h1>
                 <h2 style="color: #ffd700; margin-bottom: 10px;">Program Colindători</h2>
-                <p style="opacity: 0.8; margin-bottom: 30px;">Site-ul se activează pe 24 Decembrie!</p>
+                
+                <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: white; background: #d42426; padding: 10px 20px; border-radius: 50px; border: 2px solid white;">
+                    ${zile}z ${ore.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}
+                </div>
                 
                 <div style="background: rgba(0,0,0,0.4); width: 100%; max-width: 450px; padding: 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
                     <p style="color: #ffd700; font-weight: bold; margin-bottom: 15px;">Locațiile de anul acesta:</p>
@@ -211,11 +201,16 @@ function checkEventDate() {
     return false;
 }
 
-// Pornire aplicație
-if (!checkEventDate()) {
-    initApp();
-    setInterval(updateStatus, 1000);
-    updateStatus();
+// Start aplicație
+function start() {
+    if (checkEventDate()) {
+        setInterval(() => {
+            if (!checkEventDate()) location.reload(); // Reîncarcă site-ul când expiră timerul
+        }, 1000);
+    } else {
+        initApp();
+        setInterval(updateStatus, 1000);
+        updateStatus();
+    }
 }
-
-
+start();
