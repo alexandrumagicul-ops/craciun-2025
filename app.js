@@ -9,7 +9,7 @@ const program = [
     { start: "22:00", end: "22:30", nume: "Buni Lia", adresa: "Str. Trandafirilor, bl. 4", link: "https://maps.app.goo.gl/bmyXFL4xv6nNeENH7" },
     { start: "22:30", end: "00:00", nume: "Fam. Sorescu", adresa: "Str. Izvorului nr. 16", link: "https://maps.app.goo.gl/F5m755tay38zMSkH7" },
     { start: "00:00", end: "01:00", nume: "Fam. Gabor", adresa: "Str. Zăvoi", link: "https://maps.app.goo.gl/BSbVC3CSpavtXHjs5" },
-    { start: "01:00", end: "06:00", nume: "Fam. Petruse", adresa: "Str. Pescărușului", link: "https://maps.app.goo.gl/PQcN9WXbrjxzSMiR6" }
+    { start: "01:00", end: "06:00", nume: "Fam. Petruse", adresa: "Str. Pescărușului 24", link: "https://maps.app.goo.gl/PQcN9WXbrjxzSMiR6" }
 ];
 
 const colinde = [
@@ -217,4 +217,5 @@ if (!checkEventDate()) {
     setInterval(updateStatus, 1000);
     updateStatus();
 }
+
 
