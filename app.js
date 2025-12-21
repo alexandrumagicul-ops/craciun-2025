@@ -1,7 +1,7 @@
 /**
  * 1. CONFIGURARE DATA START & PROGRAM
  */
-const DATA_START = new Date('2025-12-20T00:00:00'); // Data la care se activează colindele
+const DATA_START = new Date('2025-12-24T00:00:00'); // Data la care se activează colindele
 
 const program = [
     { start: "19:30", end: "21:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
@@ -217,3 +217,4 @@ if (!checkEventDate()) {
     setInterval(updateStatus, 1000);
     updateStatus();
 }
+
