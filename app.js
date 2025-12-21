@@ -1,7 +1,9 @@
 /**
  * 1. CONFIGURARE DATA START & PROGRAM
  */
-const DATA_START = new Date('2025-12-24T19:30:00'); // Setați ora plecării aici
+const DATA_START = new Date('2025-12-24T00:00:00'); // Setați ora plecării aici
+const DATA_START2 = new Date('2025-12-24T19:30:00'); // Setați ora plecării aici
+
 
 const program = [
     { start: "19:30", end: "21:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
@@ -161,9 +163,9 @@ window.closeProgramPage = function() {
  */
 function checkEventDate() {
     const acum = new Date();
-    if (acum < DATA_START) {
+    if (acum < DATA_START2) {
         // Calcul Timer
-        const diff = DATA_START - acum;
+        const diff = DATA_START2 - acum;
         const zile = Math.floor(diff / (1000 * 60 * 60 * 24));
         const ore = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
