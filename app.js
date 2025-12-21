@@ -1,9 +1,8 @@
 /**
- * 1. CONFIGURARE DATA START & PROGRAM
+ * 1. CONFIGURARE DATE & PROGRAM
  */
-const DATA_START = new Date('2025-12-24T00:00:00'); // Setați ora plecării aici
-const DATA_START2 = new Date('2025-12-24T19:30:00'); // Setați ora plecării aici
-
+const DATA_ACTIVARE_SITE = new Date('2025-12-20T00:00:00'); 
+const DATA_PLECARE_COLINDA = new Date('2025-12-24T19:30:00'); 
 
 const program = [
     { start: "19:30", end: "21:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
@@ -19,7 +18,7 @@ const colinde = [
   { id: 1, titlu: "O, ce veste minunată", versuri: "I.\nO, ce veste minunată!\nÎn Betleem ni s-arată\nAstăzi s-a născut\nCel făr' de-nceput\nCum au zis prorocii.\n\nII.\nCă la Betleem Maria\nSăvârşind călătoria,\nÎntr-un mic sălaş,\nLângă-acel oraş,\nA născut pe Mesia.\n\nIII.\nPe fiul în al Său nume,\nTatăl L-a trimis în lume,\nSă se nască\nŞi să crească,\nSă ne mântuiască." },
   { id: 2, titlu: "Deschide ușa, creștine", versuri: "Deschide ușa, creștine\nDeschide ușa, creștine\nCă venim din nou la tine\nLa mulți ani, mulți ani cu bine\n\nDrumu-i lung și-am obosit\nDrumu-i lung și-am obosit\nDe departe am venit\nLa mulți ani, mulți ani cu bine\n\nNoi la Viflaim am fost\nNoi la Viflaim am fost\nUnde S-a născut Hristos\nLa mulți ani, mulți ani cu bine\n\nȘi-am văzut și pe-a Sa mamă\nȘi-am văzut și pe-a Sa mamă\nPe care Maria o chema\nLa mulți ani, mulți ani cu bine\n\nCum umbla din casă-n casă\nCum umbla din casă-n casă\nCa pe Fiul ei să-L nască\nLa mulți ani, mulți ani cu bine\n\nUmbla-n jos și umbla-n sus\nUmbla-n jos și umbla-n sus\nCa să-L nască pe Iisus\nLa mulți ani, mulți ani cu bine\n\nCare cu puterea Sa\nCare cu puterea Sa\nMântui-va lumea\nȘi de-acum până-n vecie mila Domnului să fie\nLa mulți ani, mulți ani cu bine" },
   { id: 3, titlu: "Trei păstori se întâlniră", versuri: "Trei păstori se întâlniră\nRaza soarelui, floarea soarelui\nȘi așa se sfătuiră\n\nHaideți, fraților, să mergem\nHaideți, fraților, să mergem\nRaza soarelui, floarea soarelui\nFloricele să culegem\n\nȘi să facem o cunună\nȘi să facem o cunună\nRaza soarelui, floarea soarelui\nS-o-mpletim cu voie bună\n\nȘi s-o ducem lui Hristos\nȘi s-o ducem lui Hristos\nRaza soarelui, floarea soarelui\nSa ne fie de folos" },
-  { id: 4, titlu: "Hoi-la", versuri: "Sloboază-ne, gazdă-n casă\nNu ne ține la fereastră\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nSloboază-ne, gazdă-n tindă\nSă vă zicem o colindă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nCă umblăm a colinda\nDe la o casă la alta\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la lelea Floare\nCă stă colea mai la vale\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nLelea Floare nu ne lasă\nCă-i facem tină în casă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la domn' primaru'\nDa' nu ne dă niciun banu'\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-am venit la dumneavoastră\nCă sunteți gazdă aleasă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nMulțămim că ne-ați primit\nȘi frumos ne-ați omenit\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nAmu merem mai departe\nRămâneți cu sănătate\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nȘi la anu' om colinda\nNumai dacă ne-ți chema\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la" }
+  { id: 4, titlu: "Hoi-la", versuri: "Sloboază-ne, gazdă-n casă\nNu ne ține la fereastră\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nSloboază-ne, gazdă-n tindă\nSă vă zicem o colindă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nCă umblăm a colinda\nDe la o casă la alta\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la lelea Floare\nCă stă colea mai la vale\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nLelea Floare nu ne lasă\nC-i facem tină în casă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la domn' primaru'\nDa' nu ne dă niciun banu'\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-am venit la dumneavoastră\nCă sunteți gazdă aleasă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nMulțămim că ne-ați primit\nȘi frumos ne-ați omenit\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nAmu merem mai departe\nRămâneți cu sănătate\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nȘi la anu' om colinda\nNumai dacă ne-ți chema\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la" }
 ];
 let currentSongIndex = 0;
 
@@ -111,9 +110,19 @@ function initApp() {
         }
     }
 
-    document.getElementById('next-song').onclick = () => { currentSongIndex = (currentSongIndex + 1) % colinde.length; showLyrics(currentSongIndex); };
-    document.getElementById('prev-song').onclick = () => { currentSongIndex = (currentSongIndex - 1 + colinde.length) % colinde.length; showLyrics(currentSongIndex); };
-    document.getElementById('go-home').onclick = () => { document.getElementById('main-content').classList.remove('hidden'); document.getElementById('lyrics-page').classList.add('hidden'); };
+    // AICI S-A CORECTAT:
+    document.getElementById('next-song').onclick = () => { 
+        currentSongIndex = (currentSongIndex + 1) % colinde.length; 
+        showLyrics(currentSongIndex); 
+    };
+    document.getElementById('prev-song').onclick = () => { 
+        currentSongIndex = (currentSongIndex - 1 + colinde.length) % colinde.length; 
+        showLyrics(currentSongIndex); 
+    };
+    document.getElementById('go-home').onclick = () => { 
+        document.getElementById('main-content').classList.remove('hidden'); 
+        document.getElementById('lyrics-page').classList.add('hidden'); 
+    };
 }
 
 function showLyrics(index) {
@@ -159,13 +168,13 @@ window.closeProgramPage = function() {
 };
 
 /**
- * 5. VERIFICARE DATĂ (CU TIMER)
+ * 5. VERIFICARE DATĂ & TIMER (PLECARE)
  */
 function checkEventDate() {
     const acum = new Date();
-    if (acum < DATA_START2) {
-        // Calcul Timer
-        const diff = DATA_START2 - acum;
+    
+    if (acum < DATA_ACTIVARE_SITE) {
+        const diff = DATA_PLECARE_COLINDA - acum;
         const zile = Math.floor(diff / (1000 * 60 * 60 * 24));
         const ore = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -203,11 +212,10 @@ function checkEventDate() {
     return false;
 }
 
-// Start aplicație
 function start() {
     if (checkEventDate()) {
         setInterval(() => {
-            if (!checkEventDate()) location.reload(); // Reîncarcă site-ul când expiră timerul
+            if (!checkEventDate()) location.reload(); 
         }, 1000);
     } else {
         initApp();
