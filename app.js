@@ -1,7 +1,7 @@
 /**
  * 1. CONFIGURARE DATE & PROGRAM
  */
-const DATA_ACTIVARE_SITE = new Date('2025-12-20T00:00:00'); 
+const DATA_ACTIVARE_SITE = new Date('2025-12-24T00:00:00'); 
 const DATA_PLECARE_COLINDA = new Date('2025-12-24T19:30:00'); 
 
 const program = [
@@ -224,3 +224,4 @@ function start() {
     }
 }
 start();
+
