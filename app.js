@@ -5,6 +5,7 @@ const DATA_ACTIVARE_SITE = new Date('2025-12-24T00:00:00');
 const DATA_PLECARE_COLINDA = new Date('2025-12-24T19:30:00'); 
 
 const program = [
+    { start: "12:00", end: "19:30", nume: "Ne pregatim de plecare" },
     { start: "19:30", end: "21:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
     { start: "21:00", end: "22:00", nume: "Fam. Mates", adresa: "Str. Privighetorilor nr. 2B", link: "https://maps.app.goo.gl/GrBvK8NHvBZauYr98" },
     { start: "22:00", end: "22:30", nume: "Buni Lia", adresa: "Str. Trandafirilor, bl. 4", link: "https://maps.app.goo.gl/bmyXFL4xv6nNeENH7" },
@@ -224,5 +225,6 @@ function start() {
     }
 }
 start();
+
 
 
