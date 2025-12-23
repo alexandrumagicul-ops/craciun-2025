@@ -1,17 +1,14 @@
 /**
  * 1. CONFIGURARE DATE & PROGRAM
  */
-const DATA_ACTIVARE_SITE = new Date('2025-12-24T00:00:00'); 
-const DATA_PLECARE_COLINDA = new Date('2025-12-24T19:30:00'); 
-
 const program = [
-    { start: "12:00", end: "19:30", nume: "Ne pregatim de plecare" },
+    { start: "12:00", end: "19:30", nume: "Ne pregatim sa plecam, FARA INTARZIERI!!!" },
     { start: "19:30", end: "21:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
     { start: "21:00", end: "22:00", nume: "Fam. Mates", adresa: "Str. Privighetorilor nr. 2B", link: "https://maps.app.goo.gl/GrBvK8NHvBZauYr98" },
     { start: "22:00", end: "22:30", nume: "Buni Lia", adresa: "Str. Trandafirilor, bl. 4", link: "https://maps.app.goo.gl/bmyXFL4xv6nNeENH7" },
     { start: "22:30", end: "00:00", nume: "Fam. Sorescu", adresa: "Str. Izvorului nr. 16", link: "https://maps.app.goo.gl/F5m755tay38zMSkH7" },
     { start: "00:00", end: "01:00", nume: "Fam. Gabor", adresa: "Str. Zăvoi", link: "https://maps.app.goo.gl/BSbVC3CSpavtXHjs5" },
-    { start: "01:00", end: "06:00", nume: "Fam. Petruse", adresa: "Str. Pescărușului nr. 24", link: "https://maps.app.goo.gl/PQcN9WXbrjxzSMiR6" }
+    { start: "01:00", end: "06:00", nume: "Fam. Petruse", adresa: "Str. Pescărușului", link: "https://maps.app.goo.gl/PQcN9WXbrjxzSMiR6" }
 ];
 
 const colinde = [
@@ -80,12 +77,12 @@ function updateStatus() {
  * 3. NAVIGARE & PAGINI
  */
 function initApp() {
+    // ELIMINĂ COMPLET OVERLAY-UL CARE BLOCAZĂ ECRANUL
     const overlay = document.getElementById('notif-overlay');
-    const btnDa = document.getElementById('btn-da');
-    const btnNu = document.getElementById('btn-nu');
-
-    if (btnDa) btnDa.onclick = () => { overlay.style.display = 'none'; if ("Notification" in window) Notification.requestPermission(); };
-    if (btnNu) btnNu.onclick = () => { overlay.style.display = 'none'; };
+    if (overlay) {
+        overlay.remove();
+    }
+    document.body.style.overflow = 'auto'; // Activează scroll-ul
 
     const songList = document.getElementById('song-list');
     if(songList) {
@@ -111,7 +108,6 @@ function initApp() {
         }
     }
 
-    // AICI S-A CORECTAT:
     document.getElementById('next-song').onclick = () => { 
         currentSongIndex = (currentSongIndex + 1) % colinde.length; 
         showLyrics(currentSongIndex); 
@@ -169,62 +165,12 @@ window.closeProgramPage = function() {
 };
 
 /**
- * 5. VERIFICARE DATĂ & TIMER (PLECARE)
+ * 5. PORNIRE DIRECTĂ
  */
-function checkEventDate() {
-    const acum = new Date();
-    
-    if (acum < DATA_ACTIVARE_SITE) {
-        const diff = DATA_PLECARE_COLINDA - acum;
-        const zile = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const ore = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const sec = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.body.innerHTML = `
-            <div style="text-align: center; padding: 20px; color: white; font-family: sans-serif; background: #2c3e50; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-                <h1 style="font-size: 4rem; margin: 0;">🎄</h1>
-                <h2 style="color: #ffd700; margin-bottom: 10px;">Program Colindători</h2>
-                
-                <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: white; background: #d42426; padding: 10px 20px; border-radius: 50px; border: 2px solid white;">
-                    ${zile}z ${ore.toString().padStart(2, '0')}:${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}
-                </div>
-                
-                <div style="background: rgba(0,0,0,0.4); width: 100%; max-width: 450px; padding: 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-                    <p style="color: #ffd700; font-weight: bold; margin-bottom: 15px;">Locațiile de anul acesta:</p>
-                    <div style="text-align: left;">
-                        ${program.map(p => `
-                            <a href="${p.link}" target="_blank" style="text-decoration: none; color: white; display: block; padding: 12px; margin-bottom: 8px; background: rgba(255,255,255,0.05); border-radius: 10px;">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <strong style="color: #4dff88;">${p.start} - ${p.end}</strong>
-                                    <span>📍</span>
-                                </div>
-                                <div style="font-weight: bold;">${p.nume}</div>
-                                <div style="font-size: 0.8rem; opacity: 0.7;">${p.adresa}</div>
-                            </a>
-                        `).join('')}
-                    </div>
-                </div>
-                <p style="margin-top: 20px; font-size: 0.9rem; font-style: italic; opacity: 0.6;">Vă așteptăm cu drag!</p>
-            </div>
-        `;
-        return true;
-    }
-    return false;
-}
-
 function start() {
-    if (checkEventDate()) {
-        setInterval(() => {
-            if (!checkEventDate()) location.reload(); 
-        }, 1000);
-    } else {
-        initApp();
-        setInterval(updateStatus, 1000);
-        updateStatus();
-    }
+    initApp();
+    setInterval(updateStatus, 1000);
+    updateStatus();
 }
+
 start();
-
-
-
