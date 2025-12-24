@@ -3,7 +3,7 @@
  */
 const DATA_INCEPUT = new Date("2025-12-24T19:30:00");
 const DATA_INCHIDERE = new Date("2025-12-25T10:06:00");
-const LINK_ONEDRIVE = "https://1drv.ms/f/c/2952839fc5aa097b/IgDhZPeuU5GiT4bS1FhRyvX5Af9sZ1kPPhr2a3rrNcYT7pU?e=r0agOj";
+const LINK_ONEDRIVE = "https://photos.app.goo.gl/LSdX8sAYa6PdeNGYA";
 
 const program = [
     { start: "2025-12-24T19:30:00", end: "2025-12-24T21:00:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
@@ -199,3 +199,4 @@ function afiseazaMesajFinal() {
 initApp();
 setInterval(updateStatus, 1000);
 updateStatus();
+
