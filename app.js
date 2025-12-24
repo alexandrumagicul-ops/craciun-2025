@@ -1,17 +1,17 @@
 /**
  * 1. CONFIGURARE DATE & PROGRAM
  */
-const DATA_INCHIDERE = new Date("2025-12-25T10:08:00");
+const DATA_INCEPUT = new Date("2025-12-24T19:30:00");
+const DATA_INCHIDERE = new Date("2025-12-25T10:06:00");
 const LINK_ONEDRIVE = "https://1drv.ms/f/c/2952839fc5aa097b/IgDhZPeuU5GiT4bS1FhRyvX5Af9sZ1kPPhr2a3rrNcYT7pU?e=r0agOj";
 
 const program = [
-    { start: "12:00", end: "19:30", nume: "Ne pregatim sa plecam, FARA INTARZIERI!!!" },
-    { start: "19:30", end: "21:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
-    { start: "21:00", end: "22:00", nume: "Fam. Mates", adresa: "Str. Privighetorilor nr. 2B", link: "https://maps.app.goo.gl/GrBvK8NHvBZauYr98" },
-    { start: "22:00", end: "22:30", nume: "Buni Lia", adresa: "Str. Trandafirilor, bl. 4", link: "https://maps.app.goo.gl/bmyXFL4xv6nNeENH7" },
-    { start: "22:30", end: "00:00", nume: "Fam. Sorescu", adresa: "Str. Izvorului nr. 16", link: "https://maps.app.goo.gl/F5m755tay38zMSkH7" },
-    { start: "00:00", end: "01:00", nume: "Fam. Gabor", adresa: "Str. Zăvoi", link: "https://maps.app.goo.gl/BSbVC3CSpavtXHjs5" },
-    { start: "01:00", end: "06:00", nume: "Fam. Petruse", adresa: "Str. Pescărușului", link: "https://maps.app.goo.gl/PQcN9WXbrjxzSMiR6" }
+    { start: "2025-12-24T19:30:00", end: "2025-12-24T21:00:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
+    { start: "2025-12-24T21:00:00", end: "2025-12-24T22:00:00", nume: "Fam. Mates", adresa: "Str. Privighetorilor nr. 2B", link: "https://maps.app.goo.gl/GrBvK8NHvBZauYr98" },
+    { start: "2025-12-24T22:00:00", end: "2025-12-24T22:30:00", nume: "Buni Lia", adresa: "Str. Trandafirilor, bl. 4", link: "https://maps.app.goo.gl/bmyXFL4xv6nNeENH7" },
+    { start: "2025-12-24T22:30:00", end: "2025-12-25T00:00:00", nume: "Fam. Sorescu", adresa: "Str. Izvorului nr. 16", link: "https://maps.app.goo.gl/F5m755tay38zMSkH7" },
+    { start: "2025-12-25T00:00:00", end: "2025-12-25T01:00:00", nume: "Fam. Gabor", adresa: "Str. Zăvoi", link: "https://maps.app.goo.gl/BSbVC3CSpavtXHjs5" },
+    { start: "2025-12-25T01:00:00", end: "2025-12-25T06:00:00", nume: "Fam. Petruse", adresa: "Str. Pescărușului", link: "https://maps.app.goo.gl/PQcN9WXbrjxzSMiR6" }
 ];
 
 const colinde = [
@@ -29,40 +29,44 @@ let currentSongIndex = 0;
  */
 function updateStatus() {
     const acum = new Date();
+    
+    // 1. Verificare Închidere Site
     if (acum > DATA_INCHIDERE) {
         afiseazaMesajFinal();
         return;
     }
+
     const timeDisp = document.getElementById('current-time');
     if(timeDisp) timeDisp.innerText = acum.toLocaleTimeString('ro-RO');
-
-    const oraAcum = acum.getHours();
-    const minuteTotale = oraAcum * 60 + acum.getMinutes();
-    const PRAG = 8 * 60;
-    const timpComp = (minuteTotale < PRAG) ? minuteTotale + 1440 : minuteTotale;
-
-    const intervalCurent = program.find(p => {
-        const [hS, mS] = p.start.split(':').map(Number);
-        const [hE, mE] = p.end.split(':').map(Number);
-        let minS = hS * 60 + mS; let minE = hE * 60 + mE;
-        if (minS < PRAG) minS += 1440;
-        if (minE <= PRAG) minE += 1440;
-        return timpComp >= minS && timpComp < minE;
-    });
 
     const statusElement = document.getElementById('current-location');
     const timeLeftElement = document.getElementById('time-left');
 
+    // 2. Verificare dacă suntem ÎNAINTE de program
+    if (acum < DATA_INCEPUT) {
+        statusElement.innerHTML = `<div style="color: #ff4d4d; font-weight: bold; font-size: 1.1rem;">Ne pregătim de plecare, FĂRĂ ÎNTÂRZIERI! 😤</div>`;
+        timeLeftElement.innerText = "Încă nu am pornit la drum...";
+        return;
+    }
+
+    // 3. Căutare locație curentă folosind datele complete
+    const intervalCurent = program.find(p => {
+        const start = new Date(p.start);
+        const end = new Date(p.end);
+        return acum >= start && acum < end;
+    });
+
     if (statusElement && intervalCurent) {
-        const [hE, mE] = intervalCurent.end.split(':').map(Number);
-        let dEnd = new Date();
-        dEnd.setHours(hE, mE, 0);
-        if (hE * 60 + mE <= 8 * 60) dEnd.setDate(dEnd.getDate() + 1);
+        const dEnd = new Date(intervalCurent.end);
         statusElement.innerHTML = `<div style="font-size: 1.1rem; font-weight: bold;">${intervalCurent.nume}</div><div style="font-size: 0.8rem; color: #ffd700;">${intervalCurent.adresa || '📍'}</div>`;
+        
         const diffMs = dEnd - acum;
         const dMin = Math.floor(diffMs / 60000);
         const dSec = Math.floor((diffMs % 60000) / 1000);
         if(timeLeftElement) timeLeftElement.innerHTML = `<span style="color:#ffd700;">Rămas: ${dMin}m ${dSec}s</span>`;
+    } else {
+        statusElement.innerHTML = "Crăciun fericit!";
+        timeLeftElement.innerText = "";
     }
 }
 
@@ -141,12 +145,36 @@ function showPhotosInfoPage() {
 }
 
 function showProgramPage() {
+    const acum = new Date();
     document.getElementById('main-content').classList.add('hidden');
     let pg = document.createElement('div');
     pg.style.cssText = "position:fixed; inset:0; background:#001529; z-index:1000; padding:20px; overflow-y:auto; padding-top:40px;";
+    
+    // Generăm lista cu culori și text tăiat
+    const htmlProgram = program.map(p => {
+        const start = new Date(p.start);
+        const end = new Date(p.end);
+        let stil = "color: #4dff88;"; // Verde (viitor)
+        let textDecor = "none";
+        
+        if (acum > end) {
+            stil = "color: #ff4d4d; opacity: 0.6;"; // Roșu (trecut)
+            textDecor = "line-through";
+        } else if (acum >= start && acum <= end) {
+            stil = "color: #ffd700; font-weight: bold; border: 1px solid #ffd700; border-radius: 10px;"; // Aur (prezent)
+        }
+
+        const oraStart = start.getHours().toString().padStart(2, '0') + ":" + start.getMinutes().toString().padStart(2, '0');
+        const oraEnd = end.getHours().toString().padStart(2, '0') + ":" + end.getMinutes().toString().padStart(2, '0');
+
+        return `<div style="padding:15px; border-bottom:1px solid #222; text-align:center; ${stil} text-decoration: ${textDecor};">
+                    <strong>${oraStart} - ${oraEnd}</strong><br>${p.nume}
+                </div>`;
+    }).join('');
+
     pg.innerHTML = `
         <h2 style="color:var(--gold)">🗓️ Orar Colindat</h2>
-        ${program.map(p => `<div style="padding:15px; border-bottom:1px solid #222; text-align:center;"><strong>${p.start} - ${p.end}</strong><br>${p.nume}</div>`).join('')}
+        ${htmlProgram}
         <button onclick="this.parentElement.remove(); document.getElementById('main-content').classList.remove('hidden');" class="song-btn" style="margin-top:30px; background:var(--christmas-red); color:white; width:100%;">Înapoi la Acasă</button>
     `;
     document.body.appendChild(pg);
@@ -171,4 +199,3 @@ function afiseazaMesajFinal() {
 initApp();
 setInterval(updateStatus, 1000);
 updateStatus();
-
