@@ -139,7 +139,7 @@ function showPhotosInfoPage() {
             <p>Te invităm să adaugi în folderul nostru comun toate pozele și momentele video surprinse în această seară.</p>
             <p style="font-style: italic; color: #4dff88;">Așa ne vom putea bucura cu toții de ele și le vom putea descărca oricând, ca să ne amintim cu drag de această seară minunată.</p>
         </div>
-        <a href="${LINK_ONEDRIVE}" target="_blank" style="display:block; background:#0078d4; color:white; padding:20px; border-radius:50px; text-decoration:none; font-weight:bold; font-size: 1.1rem; margin-bottom:25px;">DESCHIDE FOLDERUL ONEDRIVE</a>
+        <a href="${LINK_ONEDRIVE}" target="_blank" style="display:block; background:#0078d4; color:white; padding:20px; border-radius:50px; text-decoration:none; font-weight:bold; font-size: 1.1rem; margin-bottom:25px;">DESCHIDE FOLDERUL CU POZE</a>
         <button onclick="document.getElementById('photo-page').classList.add('hidden'); document.getElementById('main-content').classList.remove('hidden'); document.getElementById('main-header').classList.remove('hidden');" style="background:none; border:1px solid white; color:white; padding:10px 25px; border-radius:10px;">Înapoi</button>
     `;
 }
@@ -199,4 +199,3 @@ function afiseazaMesajFinal() {
 initApp();
 setInterval(updateStatus, 1000);
 updateStatus();
-
