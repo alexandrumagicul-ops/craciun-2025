@@ -8,36 +8,14 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    background: #001529; /* Albastru noapte */
+    background: #001529;
     color: white;
     text-align: center;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
 }
 
-/* --- PAGINA DE AȘTEPTARE (ÎNAINTE DE ACTIVARE) --- */
-.waiting-page {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(#001529, #165b33);
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.info-box {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 25px;
-    border-radius: 20px;
-    border: 1px solid var(--gold);
-    margin: 20px 0;
-    width: 90%;
-    max-width: 450px;
-}
-
-/* --- HEADER FIX (PAGINA PRINCIPALĂ) --- */
+/* HEADER */
 .fixed-header {
     position: fixed;
     top: 0;
@@ -49,59 +27,17 @@ body {
     backdrop-filter: blur(5px);
 }
 
-#current-time { font-size: 1.5rem; font-weight: bold; color: white; }
-#status-bar { 
-    font-size: 0.9rem; 
-    margin-top: 5px; 
-    color: var(--gold);
+#current-time { font-size: 1.5rem; font-weight: bold; }
+#status-bar { font-size: 0.9rem; margin-top: 5px; color: var(--gold); }
+
+/* GRILA SI BUTOANE */
+.grid-songs {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-/* --- OVERLAY NOTIFICARI --- */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: var(--christmas-red);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.overlay-content h1 { font-size: 1.8rem; margin-bottom: 30px; }
-
-.btn-big {
-    padding: 20px 60px;
-    font-size: 2rem;
-    border-radius: 50px;
-    border: none;
-    background: white;
-    color: var(--christmas-red);
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    cursor: pointer;
-}
-
-.btn-small {
-    display: block;
-    margin: 30px auto 0;
-    background: none;
-    border: 1px solid white;
-    color: white;
-    padding: 5px 20px;
-    border-radius: 10px;
-    opacity: 0.7;
-}
-
-/* --- GRILA COLINDE --- */
-.grid-songs {
-    display: grid;
-    grid-template-columns: 1fr;
     gap: 15px;
-    padding: 140px 20px 20px; /* Spatiu mai mare sus pentru header */
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .song-btn {
@@ -114,72 +50,59 @@ body {
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: transform 0.1s;
+    width: 100%;
 }
 
-.song-btn:active { transform: translateY(3px); border-bottom-width: 2px; }
-
-/* --- PAGINA VERSURI (MODIFICATĂ) --- */
 .hidden { display: none !important; }
 
+/* VERSURI */
 .lyrics-container { 
-    padding: 140px 20px 120px; 
-    max-width: 600px;
-    margin: 0 auto;
+    padding: 140px 20px 150px; /* Spatiu mai mare jos pentru butoane */
+    max-width: 600px; 
+    margin: 0 auto; 
 }
 
-#song-title {
-    font-size: 2.2rem; /* Titlu mare */
-    color: var(--gold);
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
+#song-title { font-size: 2.2rem; color: var(--gold); margin-bottom: 25px; }
 
 .lyrics-content {
-    font-size: 1.8rem; /* Versuri mult mai mari */
+    font-size: 1.8rem;
     line-height: 1.6;
     white-space: pre-wrap;
     background: rgba(255, 255, 255, 0.08);
     padding: 30px 20px;
     border-radius: 20px;
-    color: #ffffff;
-    font-weight: 500;
     text-align: center;
 }
 
-/* --- NAVIGARE JOS --- */
+/* NAVIGARE JOS - REPARATĂ */
 .nav-controls {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Trei coloane egale */
+    gap: 10px;
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    right: 0;
     background: rgba(0, 0, 0, 0.95);
-    padding: 20px 0;
+    padding: 20px 10px;
     border-top: 2px solid var(--christmas-green);
     z-index: 200;
 }
 
 .nav-controls button {
-    padding: 12px 18px;
+    padding: 15px 5px;
     border-radius: 12px;
     border: none;
     background: var(--christmas-green);
     color: white;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.9rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#go-home { background: var(--christmas-red); }
-
-/* --- ANIMATIE FULGI --- */
-.snowflakes {
-    pointer-events: none;
-}
-
-@keyframes fall {
-    to { transform: translateY(100vh) rotate(360deg); }
+#go-home { 
+    background: var(--christmas-red); 
 }
