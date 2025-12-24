@@ -1,7 +1,7 @@
 /**
  * 1. CONFIGURARE DATE & PROGRAM
  */
-const DATA_INCHIDERE = new Date("2025-12-22T10:08:00");
+const DATA_INCHIDERE = new Date("2025-12-25T10:08:00");
 const LINK_ONEDRIVE = "https://1drv.ms/f/c/2952839fc5aa097b/IgDhZPeuU5GiT4bS1FhRyvX5Af9sZ1kPPhr2a3rrNcYT7pU?e=r0agOj";
 
 const program = [
@@ -171,3 +171,4 @@ function afiseazaMesajFinal() {
 initApp();
 setInterval(updateStatus, 1000);
 updateStatus();
+
