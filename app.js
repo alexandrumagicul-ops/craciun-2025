@@ -2,9 +2,9 @@
  * 1. CONFIGURARE DATE & PROGRAM
  */
 const DATA_INCEPUT = new Date("2025-12-24T19:30:00");
-const DATA_INCHIDERE = new Date("2025-12-25T06:00:00");
+const DATA_INCHIDERE = new Date("2025-12-25T10:06:00");
 
-// LINK-URILE TALE
+// Link-urile tale de Dropbox
 const LINK_UPLOAD = "https://www.dropbox.com/request/CzqENkIYh8ThxrjZTHeH"; 
 const LINK_VIZUALIZARE = "https://www.dropbox.com/scl/fo/b6rauhq15dt84rbyeqn1q/AIwZgObjp3tZVehirvEMZM0?rlkey=bg59tgjsrmg2l5q41mnluml9w&st=vawugpnm&dl=0";
 
@@ -32,7 +32,6 @@ let currentSongIndex = 0;
  */
 function updateStatus() {
     const acum = new Date();
-    
     if (acum > DATA_INCHIDERE) {
         afiseazaMesajFinal();
         return;
@@ -59,7 +58,6 @@ function updateStatus() {
     if (statusElement && intervalCurent) {
         const dEnd = new Date(intervalCurent.end);
         statusElement.innerHTML = `<div style="font-size: 1.1rem; font-weight: bold;">${intervalCurent.nume}</div><div style="font-size: 0.8rem; color: #ffd700;">${intervalCurent.adresa || '📍'}</div>`;
-        
         const diffMs = dEnd - acum;
         const dMin = Math.floor(diffMs / 60000);
         const dSec = Math.floor((diffMs % 60000) / 1000);
@@ -90,17 +88,14 @@ function initApp() {
         });
         const wrapper = document.createElement('div');
         wrapper.style.cssText = "display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; padding-bottom: 50px;";
-        
         const pozeBtn = document.createElement('button');
         pozeBtn.innerText = "📸 Albumul Nostru (Poze)";
         pozeBtn.style.cssText = "background: #165b33; border: 2px solid white; color: white; padding: 15px 25px; border-radius: 30px; font-weight: bold; width: 85%; max-width: 300px; cursor: pointer; font-size: 1.1rem;";
         pozeBtn.onclick = showPhotosInfoPage;
-        
         const orarBtn = document.createElement('button');
         orarBtn.innerText = "🗓️ Vezi Orar Complet";
         orarBtn.style.cssText = "background: none; border: 1px solid #ffd700; color: #ffd700; padding: 12px 25px; border-radius: 30px; font-weight: bold; width: 85%; max-width: 300px; cursor: pointer;";
         orarBtn.onclick = showProgramPage;
-        
         wrapper.appendChild(pozeBtn);
         wrapper.appendChild(orarBtn);
         songList.after(wrapper);
@@ -136,20 +131,19 @@ function showPhotosInfoPage() {
     }
     pg.classList.remove('hidden');
     pg.innerHTML = `
-        <h1 style="color:var(--gold); font-size: 2.2rem; margin-bottom: 20px;">📸 Albumul Nostru</h1>
-        
-        <div style="font-size: 1.15rem; margin: 30px 0; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; color: white;">
+        <h1 style="color:var(--gold); font-size: 2.2rem;">📸 Albumul Nostru</h1>
+        <div style="font-size: 1.25rem; margin: 30px 0; line-height: 1.7; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; color: white;">
             <p>Seara de colindat trece repede, dar amintirile rămân pentru totdeauna! ✨</p>
             <p>Te invităm să adaugi în folderul nostru comun toate pozele și momentele video surprinse în această seară.</p>
             <p style="font-style: italic; color: #4dff88;">Așa ne vom putea bucura cu toții de ele și le vom putea descărca oricând, ca să ne amintim cu drag de această seară minunată.</p>
         </div>
-
-        <div class="grid-songs" style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
-            <button class="song-btn" style="width: 85%; max-width: 300px;" onclick="window.open('${LINK_UPLOAD}', '_blank')">⬆️ Adaugă poze și video</button>
-            <button class="song-btn" style="width: 85%; max-width: 300px;" onclick="window.open('${LINK_VIZUALIZARE}', '_blank')">📥 Vezi și descarcă</button>
+        
+        <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+            <a href="${LINK_UPLOAD}" target="_blank" style="display:block; width: 85%; max-width: 320px; background:#0078d4; color:white; padding:18px; border-radius:50px; text-decoration:none; font-weight:bold; font-size: 1.1rem;">⬆️ ADĂUGĂ POZE ȘI VIDEO</a>
+            <a href="${LINK_VIZUALIZARE}" target="_blank" style="display:block; width: 85%; max-width: 320px; background:#0078d4; color:white; padding:18px; border-radius:50px; text-decoration:none; font-weight:bold; font-size: 1.1rem;">📥 VEZI ȘI DESCARCĂ</a>
         </div>
 
-        <button onclick="document.getElementById('photo-page').classList.add('hidden'); document.getElementById('main-content').classList.remove('hidden'); document.getElementById('main-header').classList.remove('hidden');" style="background:none; border:1px solid white; color:white; padding:10px 25px; border-radius:10px; margin-top: 40px; cursor: pointer;">Înapoi</button>
+        <button onclick="document.getElementById('photo-page').classList.add('hidden'); document.getElementById('main-content').classList.remove('hidden'); document.getElementById('main-header').classList.remove('hidden');" style="background:none; border:1px solid white; color:white; padding:10px 25px; border-radius:10px; cursor:pointer; margin-top: 40px;">Înapoi</button>
     `;
 }
 
@@ -175,36 +169,33 @@ function showProgramPage() {
         const oraStart = start.getHours().toString().padStart(2, '0') + ":" + start.getMinutes().toString().padStart(2, '0');
         const oraEnd = end.getHours().toString().padStart(2, '0') + ":" + end.getMinutes().toString().padStart(2, '0');
 
-        return `<div style="padding:15px; border-bottom:1px solid #222; text-align:center; ${stil} text-decoration: ${textDecor};">
+        return `<div onclick="window.open('${p.link}', '_blank')" style="padding:15px; border-bottom:1px solid #222; text-align:center; cursor:pointer; ${stil} text-decoration: ${textDecor};">
                     <strong>${oraStart} - ${oraEnd}</strong><br>${p.nume}
                 </div>`;
     }).join('');
 
     pg.innerHTML = `
-        <h2 style="color:var(--gold)">🗓️ Orar Colindat</h2>
+        <h2 style="color:var(--gold); text-align:center;">🗓️ Orar Colindat</h2>
+        <p style="color:white; font-size:0.8rem; text-align:center; opacity:0.7; margin-bottom:20px;">(Click pe nume pentru navigație GPS)</p>
         ${htmlProgram}
-        <button onclick="this.parentElement.remove(); document.getElementById('main-content').classList.remove('hidden');" class="song-btn" style="margin-top:30px; background:var(--christmas-red); color:white; width:100%;">Înapoi la Acasă</button>
+        <button onclick="this.parentElement.remove(); document.getElementById('main-content').classList.remove('hidden');" class="song-btn" style="margin-top:30px; background:var(--christmas-red); color:white; width:100%; cursor:pointer;">Înapoi la Acasă</button>
     `;
     document.body.appendChild(pg);
 }
 
 function afiseazaMesajFinal() {
     document.body.innerHTML = `
-        <div style="min-height: 100vh; background: linear-gradient(#001529, #165b33); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; color: white;">
+        <div style="min-height: 100vh; background: linear-gradient(#001529, #165b33); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; color: white;">
             <div style="font-size: 4rem;">🌟</div>
-<h1 style="color: #ffd700; font-size: 2.5rem;">A fost o seară de poveste!</h1>
+            <h1 style="color: #ffd700; font-size: 2.5rem;">A fost o seară de poveste!</h1>
             <p style="font-size: 1.3rem; max-width: 600px; line-height: 1.6; margin: 20px 0;">
                 Ecourile colindelor s-au stins, dar bucuria rămâne în sufletele noastre. Vă mulțumim tuturor pentru clipele speciale.
             </p>
-
-                Intră în albumul colectiv pentru a vedea toate pozele serii, pentru a urca amintirile tale sau pentru a descărca ce ți-a plăcut!
-            </p>
-
-            <div style="background: rgba(255,255,255,0.08); padding: 25px; border-radius: 30px; border: 1px solid rgba(255,215,0,0.3); width: 90%; max-width: 500px;">
-                <h2 style="color: #ffd700; font-size: 1.2rem; margin-top: 0; margin-bottom: 20px;">📸 Amintirile Noastre</h2>
-                <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
-                    <button class="song-btn" style="width: 100%;" onclick="window.open('${LINK_UPLOAD}', '_blank')">⬆️ Adaugă poze/video</button>
-                    <button class="song-btn" style="width: 100%;" onclick="window.open('${LINK_VIZUALIZARE}', '_blank')">📥 Vezi și descarcă</button>
+            <div style="background: rgba(255,255,255,0.08); padding: 30px; border-radius: 30px; border: 1px solid rgba(255,215,0,0.3); max-width: 500px;">
+                <h2 style="color: #ffd700; margin-top: 0;">📸 Amintirile Noastre</h2>
+                <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                    <a href="${LINK_UPLOAD}" target="_blank" style="display:block; width: 100%; background:#ffd700; color:#001529; padding:15px; border-radius:50px; text-decoration:none; font-weight:bold;">Adaugă Amintiri ⬆️</a>
+                    <a href="${LINK_VIZUALIZARE}" target="_blank" style="display:block; width: 100%; background:white; color:#001529; padding:15px; border-radius:50px; text-decoration:none; font-weight:bold;">Vezi Albumul 📥</a>
                 </div>
             </div>
         </div>`;
