@@ -2,9 +2,9 @@
  * 1. CONFIGURARE DATE & PROGRAM
  */
 const DATA_INCEPUT = new Date("2025-12-24T19:30:00");
-const DATA_INCHIDERE = new Date("2025-12-25T10:06:00");
+const DATA_INCHIDERE = new Date("2025-12-25T06:00:00");
 
-// LINK-URILE TALE (Le schimbi aici și se modifică peste tot)
+// LINK-URILE TALE
 const LINK_UPLOAD = "https://www.dropbox.com/request/CzqENkIYh8ThxrjZTHeH"; 
 const LINK_VIZUALIZARE = "https://www.dropbox.com/scl/fo/b6rauhq15dt84rbyeqn1q/AIwZgObjp3tZVehirvEMZM0?rlkey=bg59tgjsrmg2l5q41mnluml9w&st=vawugpnm&dl=0";
 
@@ -136,11 +136,17 @@ function showPhotosInfoPage() {
     }
     pg.classList.remove('hidden');
     pg.innerHTML = `
-        <h1 style="color:var(--gold); font-size: 2.2rem; margin-bottom: 40px;">📸 Albumul Nostru</h1>
+        <h1 style="color:var(--gold); font-size: 2.2rem; margin-bottom: 20px;">📸 Albumul Nostru</h1>
         
-        <div class="grid-songs">
-            <button class="song-btn" onclick="window.open('${LINK_UPLOAD}', '_blank')">⬆️ Adaugă poze și video</button>
-            <button class="song-btn" onclick="window.open('${LINK_VIZUALIZARE}', '_blank')">📥 Vezi și descarcă</button>
+        <div style="font-size: 1.15rem; margin: 30px 0; line-height: 1.6; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; color: white;">
+            <p>Seara de colindat trece repede, dar amintirile rămân pentru totdeauna! ✨</p>
+            <p>Te invităm să adaugi în folderul nostru comun toate pozele și momentele video surprinse în această seară.</p>
+            <p style="font-style: italic; color: #4dff88;">Așa ne vom putea bucura cu toții de ele și le vom putea descărca oricând, ca să ne amintim cu drag de această seară minunată.</p>
+        </div>
+
+        <div class="grid-songs" style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+            <button class="song-btn" style="width: 85%; max-width: 300px;" onclick="window.open('${LINK_UPLOAD}', '_blank')">⬆️ Adaugă poze și video</button>
+            <button class="song-btn" style="width: 85%; max-width: 300px;" onclick="window.open('${LINK_VIZUALIZARE}', '_blank')">📥 Vezi și descarcă</button>
         </div>
 
         <button onclick="document.getElementById('photo-page').classList.add('hidden'); document.getElementById('main-content').classList.remove('hidden'); document.getElementById('main-header').classList.remove('hidden');" style="background:none; border:1px solid white; color:white; padding:10px 25px; border-radius:10px; margin-top: 40px; cursor: pointer;">Înapoi</button>
@@ -186,12 +192,20 @@ function afiseazaMesajFinal() {
     document.body.innerHTML = `
         <div style="min-height: 100vh; background: linear-gradient(#001529, #165b33); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; text-align: center; color: white;">
             <div style="font-size: 4rem;">🌟</div>
-            <h1 style="color: #ffd700; font-size: 2rem; margin: 15px 0;">A fost o seară de poveste!</h1>
-            
-            <div class="grid-songs" style="width: 100%;">
-                <h2 style="color: #ffd700; font-size: 1.2rem; margin-bottom: 20px;">📸 Amintirile Noastre</h2>
-                <button class="song-btn" onclick="window.open('${LINK_UPLOAD}', '_blank')">⬆️ Adaugă poze/video</button>
-                <button class="song-btn" onclick="window.open('${LINK_VIZUALIZARE}', '_blank')">📥 Vezi și descarcă</button>
+<h1 style="color: #ffd700; font-size: 2.5rem;">A fost o seară de poveste!</h1>
+            <p style="font-size: 1.3rem; max-width: 600px; line-height: 1.6; margin: 20px 0;">
+                Ecourile colindelor s-au stins, dar bucuria rămâne în sufletele noastre. Vă mulțumim tuturor pentru clipele speciale.
+            </p>
+
+                Intră în albumul colectiv pentru a vedea toate pozele serii, pentru a urca amintirile tale sau pentru a descărca ce ți-a plăcut!
+            </p>
+
+            <div style="background: rgba(255,255,255,0.08); padding: 25px; border-radius: 30px; border: 1px solid rgba(255,215,0,0.3); width: 90%; max-width: 500px;">
+                <h2 style="color: #ffd700; font-size: 1.2rem; margin-top: 0; margin-bottom: 20px;">📸 Amintirile Noastre</h2>
+                <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
+                    <button class="song-btn" style="width: 100%;" onclick="window.open('${LINK_UPLOAD}', '_blank')">⬆️ Adaugă poze/video</button>
+                    <button class="song-btn" style="width: 100%;" onclick="window.open('${LINK_VIZUALIZARE}', '_blank')">📥 Vezi și descarcă</button>
+                </div>
             </div>
         </div>`;
 }
