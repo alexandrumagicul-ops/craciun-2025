@@ -1,6 +1,9 @@
 /**
  * 1. CONFIGURARE DATE & PROGRAM
  */
+const DATA_INCHIDERE = new Date("2025-12-22T10:08:00");
+const LINK_ONEDRIVE = "https://1drv.ms/f/c/2952839fc5aa097b/IgDhZPeuU5GiT4bS1FhRyvX5Af9sZ1kPPhr2a3rrNcYT7pU?e=r0agOj";
+
 const program = [
     { start: "12:00", end: "19:30", nume: "Ne pregatim sa plecam, FARA INTARZIERI!!!" },
     { start: "19:30", end: "21:00", nume: "Fam. Colcea", adresa: "Cârjiți, nr. 17", link: "https://maps.app.goo.gl/xagFzSkYZqUTj3yt5?g_st=iw" },
@@ -12,12 +15,13 @@ const program = [
 ];
 
 const colinde = [
-  { id: 0, titlu: "Domn, Domn să-nălțăm", versuri: "Am plecat să colindăm\nDomn, Domn să-nălțăm\nCând boierii nu-s acasă\nDomn, Domn să-nălțăm\n\nȘi-au plecat la vânătoare\nDomn, Domn să-nălțăm\nSă vâneze căprioare\nDomn, Domn să-nălțăm\n\nCaprioare n-au vânat\nDomn, Domn să-nălțăm\nȘi-au vânat un iepuraș\nDomn, Domn să-nălțăm\n\nSă facă din blana lui\nDomn, Domn să-nălțăm\nVeșmânt frumos Domnului\nDomn, Domn să-nălțăm" },
-  { id: 1, titlu: "O, ce veste minunată", versuri: "I.\nO, ce veste minunată!\nÎn Betleem ni s-arată\nAstăzi s-a născut\nCel făr' de-nceput\nCum au zis prorocii.\n\nII.\nCă la Betleem Maria\nSăvârşind călătoria,\nÎntr-un mic sălaş,\nLângă-acel oraş,\nA născut pe Mesia.\n\nIII.\nPe fiul în al Său nume,\nTatăl L-a trimis în lume,\nSă se nască\nŞi să crească,\nSă ne mântuiască." },
-  { id: 2, titlu: "Deschide ușa, creștine", versuri: "Deschide ușa, creștine\nDeschide ușa, creștine\nCă venim din nou la tine\nLa mulți ani, mulți ani cu bine\n\nDrumu-i lung și-am obosit\nDrumu-i lung și-am obosit\nDe departe am venit\nLa mulți ani, mulți ani cu bine\n\nNoi la Viflaim am fost\nNoi la Viflaim am fost\nUnde S-a născut Hristos\nLa mulți ani, mulți ani cu bine\n\nȘi-am văzut și pe-a Sa mamă\nȘi-am văzut și pe-a Sa mamă\nPe care Maria o chema\nLa mulți ani, mulți ani cu bine\n\nCum umbla din casă-n casă\nCum umbla din casă-n casă\nCa pe Fiul ei să-L nască\nLa mulți ani, mulți ani cu bine\n\nUmbla-n jos și umbla-n sus\nUmbla-n jos și umbla-n sus\nCa să-L nască pe Iisus\nLa mulți ani, mulți ani cu bine\n\nCare cu puterea Sa\nCare cu puterea Sa\nMântui-va lumea\nȘi de-acum până-n vecie mila Domnului să fie\nLa mulți ani, mulți ani cu bine" },
-  { id: 3, titlu: "Trei păstori se întâlniră", versuri: "Trei păstori se întâlniră\nRaza soarelui, floarea soarelui\nȘi așa se sfătuiră\n\nHaideți, fraților, să mergem\nHaideți, fraților, să mergem\nRaza soarelui, floarea soarelui\nFloricele să culegem\n\nȘi să facem o cunună\nȘi să facem o cunună\nRaza soarelui, floarea soarelui\nS-o-mpletim cu voie bună\n\nȘi s-o ducem lui Hristos\nȘi s-o ducem lui Hristos\nRaza soarelui, floarea soarelui\nSa ne fie de folos" },
-  { id: 4, titlu: "Hoi-la", versuri: "Sloboază-ne, gazdă-n casă\nNu ne ține la fereastră\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nSloboază-ne, gazdă-n tindă\nSă vă zicem o colindă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nCă umblăm a colinda\nDe la o casă la alta\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la lelea Floare\nCă stă colea mai la vale\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nLelea Floare nu ne lasă\nC-i facem tină în casă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la domn' primaru'\nDa' nu ne dă niciun banu'\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-am venit la dumneavoastră\nCă sunteți gazdă aleasă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nMulțămim că ne-ați primit\nȘi frumos ne-ați omenit\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nAmu merem mai departe\nRămâneți cu sănătate\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nȘi la anu' om colinda\nNumai dacă ne-ți chema\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la" }
+    { id: 0, titlu: "Domn, Domn să-nălțăm", versuri: "Am plecat să colindăm\nDomn, Domn să-nălțăm\nCând boierii nu-s acasă\nDomn, Domn să-nălțăm\n\nȘi-au plecat la vânătoare\nDomn, Domn să-nălțăm\nSă vâneze căprioare\nDomn, Domn să-nălțăm\n\nCaprioare n-au vânat\nDomn, Domn să-nălțăm\nȘi-au vânat un iepuraș\nDomn, Domn să-nălțăm\n\nSă facă din blana lui\nDomn, Domn să-nălțăm\nVeșmânt frumos Domnului\nDomn, Domn să-nălțăm" },
+    { id: 1, titlu: "O, ce veste minunată", versuri: "I.\nO, ce veste minunată!\nÎn Betleem ni s-arată\nAstăzi s-a născut\nCel făr' de-nceput\nCum au zis prorocii.\n\nII.\nCă la Betleem Maria\nSăvârşind călătoria,\nÎntr-un mic sălaş,\nLângă-acel oraş,\nA născut pe Mesia.\n\nIII.\nPe fiul în al Său nume,\nTatăl L-a trimis în lume,\nSă se nască\nŞi să crească,\nSă ne mântuiască." },
+    { id: 2, titlu: "Deschide ușa, creștine", versuri: "Deschide ușa, creștine\nDeschide ușa, creștine\nCă venim din nou la tine\nLa mulți ani, mulți ani cu bine\n\nDrumu-i lung și-am obosit\nDrumu-i lung și-am obosit\nDe departe am venit\nLa mulți ani, mulți ani cu bine\n\nNoi la Viflaim am fost\nNoi la Viflaim am fost\nUnde S-a născut Hristos\nLa mulți ani, mulți ani cu bine\n\nȘi-am văzut și pe-a Sa mamă\nȘi-am văzut și pe-a Sa mamă\nPe care Maria o chema\nLa mulți ani, mulți ani cu bine\n\nCum umbla din casă-n casă\nCum umbla din casă-n casă\nCa pe Fiul ei să-L nască\nLa mulți ani, mulți ani cu bine\n\nUmbla-n jos și umbla-n sus\nUmbla-n jos și umbla-n sus\nCa să-L nască pe Iisus\nLa mulți ani, mulți ani cu bine\n\nCare cu puterea Sa\nCare cu puterea Sa\nMântui-va lumea\nȘi de-acum până-n vecie mila Domnului să fie\nLa mulți ani, mulți ani cu bine" },
+    { id: 3, titlu: "Trei păstori se întâlniră", versuri: "Trei păstori se întâlniră\nRaza soarelui, floarea soarelui\nȘi așa se sfătuiră\n\nHaideți, fraților, să mergem\nHaideți, fraților, să mergem\nRaza soarelui, floarea soarelui\nFloricele să culegem\n\nȘi să facem o cunună\nȘi să facem o cunună\nRaza soarelui, floarea soarelui\nS-o-mpletim cu voie bună\n\nȘi s-o ducem lui Hristos\nȘi s-o ducem lui Hristos\nRaza soarelui, floarea soarelui\nSa ne fie de folos" },
+    { id: 4, titlu: "Hoi-la", versuri: "Sloboază-ne, gazdă-n casă\nNu ne ține la fereastră\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nSloboază-ne, gazdă-n tindă\nSă vă zicem o colindă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nCă umblăm a colinda\nDe la o casă la alta\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la lelea Floare\nCă stă colea mai la vale\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nLelea Floare nu ne lasă\nC-i facem tină în casă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-om mere la domn' primaru'\nDa' nu ne dă niciun banu'\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nS-am venit la dumneavoastră\nCă sunteți gazdă aleasă\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nMulțămim că ne-ați primit\nȘi frumos ne-ați omenit\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nAmu merem mai departe\nRămâneți cu sănătate\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la\n\nȘi la anu' om colinda\nNumai dacă ne-ți chema\nHoi-la, hoi-la, la-la\nHoi-la, hoi-la, la-la" }
 ];
+
 let currentSongIndex = 0;
 
 /**
@@ -25,13 +29,17 @@ let currentSongIndex = 0;
  */
 function updateStatus() {
     const acum = new Date();
+    if (acum > DATA_INCHIDERE) {
+        afiseazaMesajFinal();
+        return;
+    }
+    const timeDisp = document.getElementById('current-time');
+    if(timeDisp) timeDisp.innerText = acum.toLocaleTimeString('ro-RO');
+
     const oraAcum = acum.getHours();
     const minuteTotale = oraAcum * 60 + acum.getMinutes();
     const PRAG = 8 * 60;
     const timpComp = (minuteTotale < PRAG) ? minuteTotale + 1440 : minuteTotale;
-    
-    const timeDisp = document.getElementById('current-time');
-    if(timeDisp) timeDisp.innerText = acum.toLocaleTimeString('ro-RO');
 
     const intervalCurent = program.find(p => {
         const [hS, mS] = p.start.split(':').map(Number);
@@ -46,30 +54,15 @@ function updateStatus() {
     const timeLeftElement = document.getElementById('time-left');
 
     if (statusElement && intervalCurent) {
-        const [hS, mS] = intervalCurent.start.split(':').map(Number);
         const [hE, mE] = intervalCurent.end.split(':').map(Number);
-        const dStart = new Date(); dStart.setHours(hS, mS, 0);
-        const dEnd = new Date(); 
-        if (hE * 60 + mE <= hS * 60 + mS) dEnd.setDate(dEnd.getDate() + 1);
+        let dEnd = new Date();
         dEnd.setHours(hE, mE, 0);
-        
-        const totalMs = dEnd - dStart;
-        const trecutMs = acum - dStart;
-        const procent = Math.min(100, Math.max(0, (trecutMs / totalMs) * 100));
-
-        statusElement.innerHTML = `
-            <a href="${intervalCurent.link}" target="_blank" style="text-decoration:none; color:inherit; display: block; text-align: center;">
-                <div style="font-size: 1.2rem; font-weight: bold;">${intervalCurent.nume}</div>
-                <div style="font-size: 0.8rem; color: #ffd700;">${intervalCurent.adresa} 📍</div>
-                <div style="width: 80%; height: 6px; background: rgba(255,255,255,0.2); border-radius: 10px; margin: 5px auto; overflow:hidden;">
-                    <div style="width: ${procent}%; height: 100%; background: #ffd700;"></div>
-                </div>
-            </a>`;
-        
+        if (hE * 60 + mE <= 8 * 60) dEnd.setDate(dEnd.getDate() + 1);
+        statusElement.innerHTML = `<div style="font-size: 1.1rem; font-weight: bold;">${intervalCurent.nume}</div><div style="font-size: 0.8rem; color: #ffd700;">${intervalCurent.adresa || '📍'}</div>`;
         const diffMs = dEnd - acum;
         const dMin = Math.floor(diffMs / 60000);
         const dSec = Math.floor((diffMs % 60000) / 1000);
-        if(timeLeftElement) timeLeftElement.innerHTML = `<span style="color: #ffd700; font-weight:bold;">Rămas: ${dMin}m ${dSec}s</span>`;
+        if(timeLeftElement) timeLeftElement.innerHTML = `<span style="color:#ffd700;">Rămas: ${dMin}m ${dSec}s</span>`;
     }
 }
 
@@ -77,13 +70,10 @@ function updateStatus() {
  * 3. NAVIGARE & PAGINI
  */
 function initApp() {
-    // ELIMINĂ COMPLET OVERLAY-UL CARE BLOCAZĂ ECRANUL
-    const overlay = document.getElementById('notif-overlay');
-    if (overlay) {
-        overlay.remove();
+    if (new Date() > DATA_INCHIDERE) {
+        afiseazaMesajFinal();
+        return;
     }
-    document.body.style.overflow = 'auto'; // Activează scroll-ul
-
     const songList = document.getElementById('song-list');
     if(songList) {
         songList.innerHTML = "";
@@ -94,31 +84,26 @@ function initApp() {
             btn.onclick = () => showLyrics(index);
             songList.appendChild(btn);
         });
-
-        if (!document.getElementById('btn-orar-main')) {
-            const wrapper = document.createElement('div');
-            wrapper.style.cssText = "width: 100%; display: flex; justify-content: center; margin-top: 30px;";
-            const orarBtn = document.createElement('button');
-            orarBtn.id = "btn-orar-main";
-            orarBtn.innerText = "🗓️ Vezi Orar Complet";
-            orarBtn.style.cssText = "background: none; border: 2px solid #ffd700; color: #ffd700; padding: 12px 25px; border-radius: 30px; font-weight: bold; width: 80%; max-width: 300px; cursor: pointer;";
-            orarBtn.onclick = showProgramPage;
-            wrapper.appendChild(orarBtn);
-            songList.after(wrapper);
-        }
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = "display: flex; flex-direction: column; align-items: center; gap: 15px; margin-top: 30px; padding-bottom: 50px;";
+        const pozeBtn = document.createElement('button');
+        pozeBtn.innerText = "📸 Albumul Nostru (Poze)";
+        pozeBtn.style.cssText = "background: #165b33; border: 2px solid white; color: white; padding: 15px 25px; border-radius: 30px; font-weight: bold; width: 85%; max-width: 300px; cursor: pointer; font-size: 1.1rem;";
+        pozeBtn.onclick = showPhotosInfoPage;
+        const orarBtn = document.createElement('button');
+        orarBtn.innerText = "🗓️ Vezi Orar Complet";
+        orarBtn.style.cssText = "background: none; border: 1px solid #ffd700; color: #ffd700; padding: 12px 25px; border-radius: 30px; font-weight: bold; width: 85%; max-width: 300px; cursor: pointer;";
+        orarBtn.onclick = showProgramPage;
+        wrapper.appendChild(pozeBtn);
+        wrapper.appendChild(orarBtn);
+        songList.after(wrapper);
     }
-
-    document.getElementById('next-song').onclick = () => { 
-        currentSongIndex = (currentSongIndex + 1) % colinde.length; 
-        showLyrics(currentSongIndex); 
-    };
-    document.getElementById('prev-song').onclick = () => { 
-        currentSongIndex = (currentSongIndex - 1 + colinde.length) % colinde.length; 
-        showLyrics(currentSongIndex); 
-    };
-    document.getElementById('go-home').onclick = () => { 
-        document.getElementById('main-content').classList.remove('hidden'); 
-        document.getElementById('lyrics-page').classList.add('hidden'); 
+    document.getElementById('next-song').onclick = () => { currentSongIndex = (currentSongIndex + 1) % colinde.length; showLyrics(currentSongIndex); };
+    document.getElementById('prev-song').onclick = () => { currentSongIndex = (currentSongIndex - 1 + colinde.length) % colinde.length; showLyrics(currentSongIndex); };
+    document.getElementById('go-home').onclick = () => {
+        document.getElementById('main-content').classList.remove('hidden');
+        document.getElementById('lyrics-page').classList.add('hidden');
+        document.getElementById('main-header').classList.remove('hidden');
     };
 }
 
@@ -126,51 +111,63 @@ function showLyrics(index) {
     currentSongIndex = index;
     document.getElementById('main-content').classList.add('hidden');
     document.getElementById('lyrics-page').classList.remove('hidden');
+    document.getElementById('main-header').classList.add('hidden');
     document.getElementById('song-title').innerText = colinde[index].titlu;
     document.getElementById('song-text').innerText = colinde[index].versuri;
     window.scrollTo(0, 0);
 }
 
-/**
- * 4. PAGINA ORAR COMPLET
- */
-function showProgramPage() {
+function showPhotosInfoPage() {
     document.getElementById('main-content').classList.add('hidden');
-    let pg = document.getElementById('full-program-page');
+    document.getElementById('main-header').classList.add('hidden');
+    let pg = document.getElementById('photo-page');
     if(!pg) {
         pg = document.createElement('div');
-        pg.id = 'full-program-page';
-        pg.style.cssText = "position: absolute; top: 0; left: 0; width: 100%; min-height: 100vh; background: #2c3e50; z-index: 1000; padding-top: 130px; display: flex; flex-direction: column; align-items: center;";
+        pg.id = 'photo-page';
+        pg.style.cssText = "padding: 60px 20px; text-align: center; min-height: 100vh; background: #001529;";
         document.body.appendChild(pg);
     }
     pg.classList.remove('hidden');
-
     pg.innerHTML = `
-        <h2 style="color: #ffd700; text-align:center; margin-bottom: 20px;">🗓️ Orar Colindat</h2>
-        <div style="width: 90%; max-width: 400px; background: rgba(0,0,0,0.8); max-height: 50vh; overflow-y: auto; padding: 20px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.1);">
-            ${program.map(p => `
-                <div style="margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; color: #4dff88; text-align: center;">
-                    <strong>${p.start} - ${p.end}</strong><br>
-                    <span style="font-size: 1.1rem; color: white;">${p.nume}</span>
-                </div>
-            `).join('')}
+        <h1 style="color:var(--gold); font-size: 2.2rem;">📸 Albumul Nostru</h1>
+        <div style="font-size: 1.25rem; margin: 30px 0; line-height: 1.7; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px;">
+            <p>Seara de colindat trece repede, dar amintirile rămân pentru totdeauna! ✨</p>
+            <p>Te invităm să adaugi în folderul nostru comun toate pozele și momentele video surprinse în această seară.</p>
+            <p style="font-style: italic; color: #4dff88;">Așa ne vom putea bucura cu toții de ele și le vom putea descărca oricând, ca să ne amintim cu drag de această seară minunată.</p>
         </div>
-        <button class="song-btn" style="margin-top: 30px; background: #c0392b; width: 80%; max-width: 300px;" onclick="closeProgramPage()">🏠 Înapoi</button>
+        <a href="${LINK_ONEDRIVE}" target="_blank" style="display:block; background:#0078d4; color:white; padding:20px; border-radius:50px; text-decoration:none; font-weight:bold; font-size: 1.1rem; margin-bottom:25px;">DESCHIDE FOLDERUL ONEDRIVE</a>
+        <button onclick="document.getElementById('photo-page').classList.add('hidden'); document.getElementById('main-content').classList.remove('hidden'); document.getElementById('main-header').classList.remove('hidden');" style="background:none; border:1px solid white; color:white; padding:10px 25px; border-radius:10px;">Înapoi</button>
     `;
 }
 
-window.closeProgramPage = function() {
-    document.getElementById('full-program-page').classList.add('hidden');
-    document.getElementById('main-content').classList.remove('hidden');
-};
-
-/**
- * 5. PORNIRE DIRECTĂ
- */
-function start() {
-    initApp();
-    setInterval(updateStatus, 1000);
-    updateStatus();
+function showProgramPage() {
+    document.getElementById('main-content').classList.add('hidden');
+    let pg = document.createElement('div');
+    pg.style.cssText = "position:fixed; inset:0; background:#001529; z-index:1000; padding:20px; overflow-y:auto; padding-top:40px;";
+    pg.innerHTML = `
+        <h2 style="color:var(--gold)">🗓️ Orar Colindat</h2>
+        ${program.map(p => `<div style="padding:15px; border-bottom:1px solid #222; text-align:center;"><strong>${p.start} - ${p.end}</strong><br>${p.nume}</div>`).join('')}
+        <button onclick="this.parentElement.remove(); document.getElementById('main-content').classList.remove('hidden');" class="song-btn" style="margin-top:30px; background:var(--christmas-red); color:white; width:100%;">Înapoi la Acasă</button>
+    `;
+    document.body.appendChild(pg);
 }
 
-start();
+function afiseazaMesajFinal() {
+    document.body.innerHTML = `
+        <div style="min-height: 100vh; background: linear-gradient(#001529, #165b33); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; color: white;">
+            <div style="font-size: 4rem;">🌟</div>
+            <h1 style="color: #ffd700; font-size: 2.5rem;">A fost o seară de poveste!</h1>
+            <p style="font-size: 1.3rem; max-width: 600px; line-height: 1.6; margin: 20px 0;">
+                Ecourile colindelor s-au stins, dar bucuria rămâne în sufletele noastre. Vă mulțumim tuturor pentru clipele speciale.
+            </p>
+            <div style="background: rgba(255,255,255,0.08); padding: 30px; border-radius: 30px; border: 1px solid rgba(255,215,0,0.3); max-width: 500px;">
+                <h2 style="color: #ffd700; margin-top: 0;">📸 Amintirile Noastre</h2>
+                <p>Intră în albumul colectiv pentru a vedea toate pozele serii, pentru a urca amintirile tale sau pentru a descărca ce ți-a plăcut!</p>
+                <a href="${LINK_ONEDRIVE}" target="_blank" style="display: inline-block; text-decoration: none; background: #ffd700; color: #001529; padding: 18px 35px; border-radius: 50px; font-weight: bold; margin-top: 10px;">Vezi Albumul 🎄</a>
+            </div>
+        </div>`;
+}
+
+initApp();
+setInterval(updateStatus, 1000);
+updateStatus();
