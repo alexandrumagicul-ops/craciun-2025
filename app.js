@@ -2,7 +2,7 @@
  * 1. CONFIGURARE DATE & PROGRAM
  */
 const DATA_INCEPUT = new Date("2025-12-24T19:30:00");
-const DATA_INCHIDERE = new Date("2025-12-25T10:06:00");
+const DATA_INCHIDERE = new Date("2025-12-25T06:00:00");
 
 // Link-urile tale de Dropbox
 const LINK_UPLOAD = "https://www.dropbox.com/request/CzqENkIYh8ThxrjZTHeH"; 
@@ -204,3 +204,4 @@ function afiseazaMesajFinal() {
 initApp();
 setInterval(updateStatus, 1000);
 updateStatus();
+
